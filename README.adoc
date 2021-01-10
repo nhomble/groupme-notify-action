@@ -1,8 +1,13 @@
 :toc: macro
 = groupme-notify-action
 
+image:https://github.com/nhomble/groupme-notify-action/workflows/Linter/badge.svg[Linter]
+
 [.lead]
 a github action to send groupme messages
+
+image:https://user-images.githubusercontent.com/3923558/104116315-7b075a80-52e5-11eb-9fde-212fcd937675.png[Sample Message]
+
 
 toc::[]
 
@@ -21,10 +26,39 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: do notification
-        uses: nhomble/groupme-notify-action@v0.1.1
+        uses: nhomble/groupme-notify-action@v0.2
         id: notification
         with:
-          group: ${{ secrets.YOUR_GROUP }}
+          group: ${{ secrets.YOUR_GROUP_ID }}
           message: 'Test notification!'
           token: ${{ secrets.YOUR_API_KEY }}
 ----
+
+== GroupMe Specifics
+You will want to visit https://dev.groupme.com/docs/v3[GroupMe API] for two things:
+
+1. Get your access token (and keep it a secret!)
+2. Get the groupId
+
+Given your groupId, you can get a list of all the groups you are a part of by doing:
+[source,bash]
+----
+$ TOKEN=<from above>
+$ curl \
+    -H "Content-Type: application/json" \
+    https://api.groupme.com/v3/groups?token=$TOKEN
+----
+
+What you care about is:
+[source,json]
+----
+{
+  "response": [
+    {"id":  "<an id>", "name": "GitHub", "...":  "..."},
+    {"id":  "<another id>", "name": "Family", "...":  "..."},
+    {"id":  "<a third id>", "name": "Friends", "...":  "..."}
+  ]
+}
+----
+
+Based off of the name, figure out the groupId you want to use and then put that into your `action.yml`.
