@@ -1,6 +1,5 @@
 FROM docker.pkg.github.com/nhomble/groupme-notify/groupme-notify
 
-ARG GROUP
-ARG MESSAGE
+COPY entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["/notify", "-groupId", "$GROUP", "-m", "$MESSAGE"]
+ENTRYPOINT ["/entrypoint.sh"]

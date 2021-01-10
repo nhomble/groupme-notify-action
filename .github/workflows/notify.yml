@@ -19,8 +19,6 @@ jobs:
       - name: do notification
         uses: ./ # Uses an action in the root directory
         id: hello
-        env:
-          GO_GROUPME_API_TOKEN: ${{ secrets.GO_GROUPME_API_TOKEN }}
         with:
           group-id: ${{ secrets.GROUPME_GROUP }}
           message: 'groupme-notify-action is job ran'
