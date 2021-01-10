@@ -20,6 +20,6 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: hello
         with:
-          group-id: ${{ secrets.GROUPME_GROUP }}
+          group: ${{ secrets.GROUPME_GROUP }}
           message: 'groupme-notify-action is job ran'
-          groupme-token: ${{ secrets.GO_GROUPME_API_TOKEN }}
+          token: ${{ secrets.GO_GROUPME_API_TOKEN }}

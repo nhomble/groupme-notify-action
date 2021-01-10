@@ -1,5 +1,5 @@
 #!/bin/sh -l
 
-export GO_GROUPME_API_TOKEN=$INPUT_GROUPME-TOKEN
+export GO_GROUPME_API_TOKEN=$INPUT_TOKEN
 
-/notify -groupId $INPUT_GROUP-ID -m "$INPUT_MESSAGE"
+/notify -groupId $INPUT_GROUP -m "$INPUT_MESSAGE"
