@@ -15,6 +15,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - '/notify'
     - ${{ inputs.group-id }}
     - ${{ inputs.message }}
   entrypoint: '/notify'
