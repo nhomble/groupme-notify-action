@@ -1,0 +1,20 @@
+name: groupme-notify
+on: [push]
+
+jobs:
+  groupme:
+    runs-on: ubuntu-latest
+    name: notify
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: do notification
+        env:
+          GO_GROUPME_API_TOKEN: ${{ secrets.GO_GROUPME_API_TOKEN }}
+        uses: ./ # Uses an action in the root directory
+        id: hello
+        with:
+          group-id: ${{ secrets.GROUPME_GROUP }}
+          message: 'groupme-notify-action is job ran'
