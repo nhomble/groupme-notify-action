@@ -17,10 +17,9 @@ jobs:
           username: ${{ secrets.MY_GITHUB_DOCKER_USERNAME }}
           password: ${{ secrets.MY_GITHUB_DOCKER_SECRET }}        
       - name: do notification
-        env:
-          GO_GROUPME_API_TOKEN: ${{ secrets.GO_GROUPME_API_TOKEN }}
         uses: ./ # Uses an action in the root directory
         id: hello
         with:
           group-id: ${{ secrets.GROUPME_GROUP }}
           message: 'groupme-notify-action is job ran'
+          groupme-token: ${{ secrets.GO_GROUPME_API_TOKEN }}
