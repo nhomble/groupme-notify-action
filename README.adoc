@@ -6,6 +6,9 @@ image:https://github.com/nhomble/groupme-notify-action/workflows/Linter/badge.sv
 [.lead]
 a github action to send groupme messages
 
+image:https://user-images.githubusercontent.com/3923558/104116315-7b075a80-52e5-11eb-9fde-212fcd937675.png[Sample Message]
+
+
 toc::[]
 
 == Example
