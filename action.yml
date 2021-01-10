@@ -1,0 +1,14 @@
+name: 'groupme-notify-action'
+description: 'send groupme messages'
+inputs:
+  group-id:
+    description: 'group to notify'
+    required: true
+  message:
+    description: 'message to send'
+    required: true
+runs:
+  using: 'docker'
+  image: 'docker.pkg.github.com/nhomble/groupme-notify/groupme-notify'
+  args:
+    - -groupId ${{ inputs.group-id }} -m ${{ inputs.message }}
