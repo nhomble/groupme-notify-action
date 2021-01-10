@@ -6,13 +6,42 @@ image:https://github.com/nhomble/groupme-notify-action/workflows/Linter/badge.sv
 [.lead]
 a github action to send groupme messages
 
-image:https://user-images.githubusercontent.com/3923558/104116315-7b075a80-52e5-11eb-9fde-212fcd937675.png[Sample Message]
-
-
 toc::[]
 
-== Example
+== Examples
+This action supports two styles of messaging.
 
+1. You can create a link:https://dev.groupme.com/bots[bot] associated with that group and just invoke the bot apis with your token and botId.
+2. Directly with the GroupMe groupId and your access token, you can message a group with your identity.
+
+We recommend you go with option (1) since you'll typically receive notifications on your GroupMe client from a bot but not from yourself.
+
+=== Message with a bot
+image:https://user-images.githubusercontent.com/3923558/104136448-23f49a80-5364-11eb-9fd7-6ecd269c4577.png[Message with bot]
+[source,yml]
+----
+
+name: groupme-notify
+on: [push]
+
+jobs:
+  groupme:
+    runs-on: ubuntu-latest
+    name: notify
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: do notification as bot
+        uses: nhomble/groupme-notify-action@v1
+        id: bot
+        with:
+          bot: ${{ secrets.GROUPME_BOT }}
+          message: "It's a bot!"
+          token: ${{ secrets.GO_GROUPME_API_TOKEN }}
+----
+
+=== Message as yourself
+image:https://user-images.githubusercontent.com/3923558/104116315-7b075a80-52e5-11eb-9fde-212fcd937675.png[Message yourself]
 [source,yml]
 ----
 name: groupme-notify
@@ -26,7 +55,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: do notification
-        uses: nhomble/groupme-notify-action@v0.2
+        uses: nhomble/groupme-notify-action@v1
         id: notification
         with:
           group: ${{ secrets.YOUR_GROUP_ID }}
@@ -34,9 +63,17 @@ jobs:
           token: ${{ secrets.YOUR_API_KEY }}
 ----
 
-== GroupMe Specifics
-You will want to visit https://dev.groupme.com/docs/v3[GroupMe API] for two things:
+**Note**: you can define both the `group` and `bot` parameter in your yml. This action will give precedence to the **bot mode** so
+that `group` parameter will be ignored.
 
+== GroupMe Specifics
+You will want to visit https://dev.groupme.com/docs/v3[GroupMe API] for exhaustive documentation.
+
+=== How do I create a bot?
+Through the link:https://dev.groupme.com/bots[GroupMe Dev] portal, you can click the **Create Bot** button. From the UI, the **Bot ID** parameter
+is what you need to pass to this action.
+
+=== What is the groupId?
 1. Get your access token (and keep it a secret!)
 2. Get the groupId
 
