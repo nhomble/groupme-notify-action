@@ -12,10 +12,10 @@ inputs:
     required: true
 
 runs:
-  env:
-    GO_GROUPME_API_TOKEN: ${{ inputs.groupme-token }}
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.group-id }}
     - ${{ inputs.message }}
+  env:
+    GROUPME_API_TOKEN: ${{ inputs.groupme-token }}
