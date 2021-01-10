@@ -1,5 +1,6 @@
 name: 'groupme-notify-action'
 description: 'send groupme messages'
+author: 'nhomble'
 inputs:
   group:
     description: 'group to notify'
@@ -14,3 +15,6 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+branding:
+  icon: 'message-square'
+  color: 'blue'
