@@ -54,9 +54,11 @@ What you care about is:
 ----
 {
   "response": [
-    {"id":  "<an id>", "...":  "..."},
-    {"id":  "<another id>", "...":  "..."},
-    {"id":  "<a third id>", "...":  "..."}
+    {"id":  "<an id>", "name": "GitHub", "...":  "..."},
+    {"id":  "<another id>", "name": "Family", "...":  "..."},
+    {"id":  "<a third id>", "name": "Friends", "...":  "..."}
   ]
 }
 ----
+
+Based off of the name, figure out the groupId you want to use and then put that into your `action.yml`.
