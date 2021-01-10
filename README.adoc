@@ -1,6 +1,8 @@
 :toc: macro
 = groupme-notify-action
 
+image:https://github.com/nhomble/groupme-notify-action/workflows/Linter/badge.svg[Linter]
+
 [.lead]
 a github action to send groupme messages
 
