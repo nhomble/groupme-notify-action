@@ -36,6 +36,7 @@ jobs:
 
 == GroupMe Specifics
 You will want to visit https://dev.groupme.com/docs/v3[GroupMe API] for two things:
+
 1. Get your access token (and keep it a secret!)
 2. Get the groupId
 
