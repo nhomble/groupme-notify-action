@@ -1,4 +1,4 @@
-FROM docker.pkg.github.com/nhomble/groupme-notify/groupme-notify
+FROM nhomble93/groupme-notify:latest
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
