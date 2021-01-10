@@ -1,11 +1,5 @@
 #!/bin/sh -l
 
-GROUP=$1
-MESSAGE=$2
+export GO_GROUPME_API_TOKEN=$INPUT_GROUPME-TOKEN
 
-echo "input_message=$INPUT_MESSAGE"
-echo "message=$MESSAGE"
-
-printenv
-
-/notify -groupId $GROUP -m $MESSAGE
+/notify -groupId $INPUT_GROUP-ID -m "$INPUT_MESSAGE"
