@@ -74,8 +74,8 @@ Through the link:https://dev.groupme.com/bots[GroupMe Dev] portal, you can click
 is what you need to pass to this action.
 
 === What is the groupId?
-1. Get your access token (and keep it a secret!)
-2. Get the groupId
+You'll need to perform a GET against the GroupMe APIs to find the `groupId` for the group you want. After you login, you
+can retrieve your access token from the UI.
 
 Given your access token, you can get a list of all the groups you are a part of by doing:
 [source,bash]
