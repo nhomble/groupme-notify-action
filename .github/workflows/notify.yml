@@ -6,14 +6,19 @@ jobs:
     runs-on: ubuntu-latest
     name: notify
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2     
-      - name: do notification
-        uses: ./ # Uses an action in the root directory
-        id: hello
+      - name: do notification as me
+        uses: ./ 
+        id: me
         with:
           group: ${{ secrets.GROUPME_GROUP }}
-          message: 'Test notification!'
+          message: "Hey it's me!"
+          token: ${{ secrets.GO_GROUPME_API_TOKEN }}
+      - name: do notification as bot
+        uses: ./ 
+        id: bot
+        with:
+          bot: ${{ secrets.GROUPME_BOT }}
+          message: "It's a bot!"
           token: ${{ secrets.GO_GROUPME_API_TOKEN }}
