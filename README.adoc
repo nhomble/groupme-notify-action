@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: do notification
-        uses: nhomble/groupme-notify-action@v0.1.1
+        uses: nhomble/groupme-notify-action@v0.2
         id: notification
         with:
           group: ${{ secrets.YOUR_GROUP }}
