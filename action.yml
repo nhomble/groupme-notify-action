@@ -1,13 +1,13 @@
 name: 'groupme-notify-action'
 description: 'send groupme messages'
 inputs:
-  group-id:
+  group:
     description: 'group to notify'
     required: true
   message:
     description: 'message to send'
     required: true
-  groupme-token:
+  token:
     description: 'groupme api key'
     required: true
 
