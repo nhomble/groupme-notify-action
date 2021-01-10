@@ -2,8 +2,11 @@ name: 'groupme-notify-action'
 description: 'send groupme messages'
 inputs:
   group:
-    description: 'group to notify'
-    required: true
+    description: 'groupId to notify, this argument is optional and ignored if `bot` is defined'
+    required: false
+  bot:
+    description: 'botId to use for notification, this argument can be null if `group` is defined '
+    required: false
   message:
     description: 'message to send'
     required: true

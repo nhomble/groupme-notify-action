@@ -12,4 +12,8 @@ $INPUT_MESSAGE
 EOF
 )
 
-/notify -groupId $INPUT_GROUP -m "$MSG"
+if [ "$INPUT_BOT" != "" ]; then
+  /notify -botId "$INPUT_BOT" -m "$MSG"
+else
+  /notify -groupId "$INPUT_GROUP" -m "$MSG"
+fi
