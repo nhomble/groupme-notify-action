@@ -9,6 +9,7 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'docker.pkg.github.com/nhomble/groupme-notify/groupme-notify'
+  image: 'Dockerfile'
   args:
-    - -groupId ${{ inputs.group-id }} -m ${{ inputs.message }}
+    - ${{ inputs.group-id }}
+    - ${{ inputs.message }}
