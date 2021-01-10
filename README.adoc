@@ -1,0 +1,30 @@
+:toc: macro
+= groupme-notify-action
+
+[.lead]
+a github action to send groupme messages
+
+toc::[]
+
+== Example
+
+[source,yml]
+----
+name: groupme-notify
+on: [push]
+
+jobs:
+  groupme:
+    runs-on: ubuntu-latest
+    name: notify
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: do notification
+        uses: nhomble/groupme-notify-action@v0.1.1
+        id: notification
+        with:
+          group: ${{ secrets.YOUR_GROUP }}
+          message: 'Test notification!'
+          token: ${{ secrets.YOUR_API_KEY }}
+----
