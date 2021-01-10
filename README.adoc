@@ -35,9 +35,9 @@ jobs:
         uses: nhomble/groupme-notify-action@v1
         id: bot
         with:
-          bot: ${{ secrets.GROUPME_BOT }}
+          bot: ${{ secrets.YOUR_BOT_ID }}
           message: "It's a bot!"
-          token: ${{ secrets.GO_GROUPME_API_TOKEN }}
+          token: ${{ secrets.YOUR_API_KEY }}
 ----
 
 === Message as yourself
