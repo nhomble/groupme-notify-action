@@ -1,4 +1,4 @@
-FROM nhomble93/groupme-notify:latest
+FROM hombro/groupme-notify:latest
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
